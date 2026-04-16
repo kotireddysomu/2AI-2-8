@@ -1,13 +1,15 @@
+# Member 1 : Import Libraries & Load Dataset
+
+import numpy as np
 import pandas as pd
 
-# Example dataset
-df = pd.DataFrame({
-    'Name': ['A', 'B', 'C', 'D'],
-    'Gender': ['Male', 'Female', 'Female', 'Male'],
-    'City': ['Delhi', 'Mumbai', 'Delhi', 'Chennai']
-})
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.preprocessing import StandardScaler
 
-# One-Hot Encoding
-df_encoded = pd.get_dummies(df, drop_first=True)
+# Load dataset
+df = pd.read_csv("data.csv")
 
-print(df_encoded)
+print(df.head())
+print(df.isnull().sum())
